@@ -13,12 +13,28 @@ service PaymentProcessorService {
 }
 
 message PaymentRequest {
-  string number = 2;
-  string ccv = 3;
-  string exp = 4;
-  string name = 5;
-  string provider = 6;
-  string amount = 7;
+    Card card = 1;
+    Order order = 2;
+    string provider = 3;
+}
+
+    message Card {
+      string number = 1;
+      string ccv = 2;
+      string exp = 3;
+      string name = 4;
+      string brand = 5;
+    }
+
+    message Order {
+      string orderId = 1;
+      int32 amount = 2;
+      Customer customer = 3;
+    }
+
+    message Customer {
+      string first_name = 1;
+      string last_name = 2;
     }
 
 message PaymentResponse {
