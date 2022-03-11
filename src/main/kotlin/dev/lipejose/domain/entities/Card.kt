@@ -5,4 +5,5 @@ data class Card(
     var ccv: String,
     val exp: String,
     val name: String,
+    val brand: String
 )
