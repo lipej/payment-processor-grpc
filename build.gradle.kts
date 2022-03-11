@@ -15,6 +15,7 @@ group = "dev.lipejose"
 val kotlinVersion= project.properties["kotlinVersion"]
 repositories {
     mavenCentral()
+    maven(url = "https://jitpack.io")
 }
 
 dependencies {
@@ -28,6 +29,7 @@ dependencies {
     implementation("io.micronaut:micronaut-validation")
     implementation("io.grpc:grpc-kotlin-stub:0.1.1")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2")
+    implementation("com.github.DeveloperCielo:API-3.0-Java:-SNAPSHOT")
 
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
