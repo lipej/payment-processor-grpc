@@ -1,0 +1,6 @@
+applicationType: grpc
+defaultPackage: dev.lipejose
+testFramework: spock
+sourceLanguage: kotlin
+buildTool: gradle_kotlin
+features: [annotation-api, app-name, gradle, grpc, jackson-databind, kotlin, kotlin-application, kotlin-build, logback, micronaut-build, readme, shade, spock, yaml]

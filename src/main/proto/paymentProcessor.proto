@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "dev.lipejose";
+option java_outer_classname = "PaymentProcessor";
+option objc_class_prefix = "HLW";
+
+package dev.lipejose;
+
+service PaymentProcessorService {
+  rpc process (PaymentRequest) returns (PaymentResponse) {}
+  rpc processStream (stream PaymentRequest) returns (stream PaymentResponse) {}
+}
+
+message PaymentRequest {
+  string number = 2;
+  string ccv = 3;
+  string exp = 4;
+  string name = 5;
+  string provider = 6;
+  string amount = 7;
+    }
+
+message PaymentResponse {
+  bool success = 1;
+  string transaction_id = 2;
+  string message = 3;
+}
+
+
+
