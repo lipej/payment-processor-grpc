@@ -1,4 +1,4 @@
-package dev.lipejose.presentation.controllers
+package dev.lipejose.presentation.endpoints
 
 import dev.lipejose.PaymentProcessorServiceGrpcKt
 import dev.lipejose.PaymentRequest
@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 
 @Singleton
-class PaymentController : PaymentProcessorServiceGrpcKt.PaymentProcessorServiceCoroutineImplBase() {
+class PaymentEndpoint : PaymentProcessorServiceGrpcKt.PaymentProcessorServiceCoroutineImplBase() {
 
     override suspend fun process(request: PaymentRequest): PaymentResponse {
         return when (val worker = ProvidersFactory().create(request.provider)) {

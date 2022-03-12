@@ -12,9 +12,6 @@ class PaymentService(private val provider: PaymentProvider) {
         val card = Card(request.card.number, request.card.ccv, request.card.exp, request.card.name, request.card.brand)
         val customer = Customer(request.order.customer.firstName, request.order.customer.lastName)
         val order = Order(request.order.orderId, request.order.amount, customer)
-        println(order)
-        println(card)
-        println(customer)
 
         return provider.execute(card, order)
     }
