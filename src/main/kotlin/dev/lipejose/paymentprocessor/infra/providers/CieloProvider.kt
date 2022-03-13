@@ -1,15 +1,15 @@
-package dev.lipejose.infra.providers
+package dev.lipejose.paymentprocessor.infra.providers
 
 import cieloecommerce.sdk.Merchant
 import cieloecommerce.sdk.ecommerce.CieloEcommerce
 import cieloecommerce.sdk.ecommerce.Environment
 import cieloecommerce.sdk.ecommerce.Sale
 import cieloecommerce.sdk.ecommerce.request.CieloRequestException
-import dev.lipejose.PaymentResponse
-import dev.lipejose.domain.entities.Card
-import dev.lipejose.domain.entities.Order
-import dev.lipejose.domain.error.PaymentFailedError
-import dev.lipejose.domain.services.protocols.PaymentProvider
+import dev.lipejose.paymentprocessor.PaymentResponse
+import dev.lipejose.paymentprocessor.domain.entities.Card
+import dev.lipejose.paymentprocessor.domain.entities.Order
+import dev.lipejose.paymentprocessor.domain.error.PaymentFailedError
+import dev.lipejose.paymentprocessor.domain.protocols.PaymentProvider
 import java.io.IOException
 
 
@@ -39,12 +39,12 @@ class CieloProvider : PaymentProvider {
 
             CieloEcommerce(merchant, Environment.SANDBOX).captureSale(paymentId, order.amount, 0)
 
-            PaymentResponse.newBuilder().setSuccess(true).setTransactionId(paymentId).build()
+            PaymentResponse.newBuilder().setSuccess(true).setCode(200).setTransactionId(paymentId).build()
         } catch (e: CieloRequestException) {
-            PaymentFailedError(e.message.toString()).build()
+            PaymentFailedError(e.error.message, e.error.code).build()
         } catch (e: IOException) {
             e.printStackTrace()
-            PaymentFailedError(e.message.toString()).build()
+            PaymentFailedError(e.message.toString(), 500).build()
         }
     }
 

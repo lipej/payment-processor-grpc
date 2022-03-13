@@ -1,4 +1,4 @@
-package dev.lipejose.domain.entities
+package dev.lipejose.paymentprocessor.domain.entities
 
 data class Card(
     val number: String,

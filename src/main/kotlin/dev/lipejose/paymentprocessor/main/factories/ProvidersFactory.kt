@@ -1,7 +1,7 @@
-package dev.lipejose.main.factories
+package dev.lipejose.paymentprocessor.main.factories
 
-import dev.lipejose.domain.services.protocols.PaymentProvider
-import dev.lipejose.infra.providers.CieloProvider
+import dev.lipejose.paymentprocessor.domain.protocols.PaymentProvider
+import dev.lipejose.paymentprocessor.infra.providers.CieloProvider
 import io.micronaut.context.annotation.Factory
 
 @Factory

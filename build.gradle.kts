@@ -40,7 +40,7 @@ dependencies {
 
 
 application {
-    mainClass.set("dev.lipejose.ApplicationKt")
+    mainClass.set("dev.lipejose.paymentprocessor.ApplicationKt")
 }
 java {
     sourceCompatibility = JavaVersion.toVersion("11")
@@ -94,7 +94,7 @@ micronaut {
     testRuntime("spock2")
     processing {
         incremental(true)
-        annotations("dev.lipejose.*")
+        annotations("dev.lipejose.paymentprocessor.*")
     }
 }
 

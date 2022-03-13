@@ -1,11 +1,11 @@
-package dev.lipejose.domain.services
+package dev.lipejose.paymentprocessor.domain.services
 
-import dev.lipejose.PaymentRequest
-import dev.lipejose.PaymentResponse
-import dev.lipejose.domain.entities.Card
-import dev.lipejose.domain.entities.Customer
-import dev.lipejose.domain.entities.Order
-import dev.lipejose.domain.services.protocols.PaymentProvider
+import dev.lipejose.paymentprocessor.PaymentRequest
+import dev.lipejose.paymentprocessor.PaymentResponse
+import dev.lipejose.paymentprocessor.domain.entities.Card
+import dev.lipejose.paymentprocessor.domain.entities.Customer
+import dev.lipejose.paymentprocessor.domain.entities.Order
+import dev.lipejose.paymentprocessor.domain.protocols.PaymentProvider
 
 class PaymentService(private val provider: PaymentProvider) {
     fun process(request: PaymentRequest): PaymentResponse {

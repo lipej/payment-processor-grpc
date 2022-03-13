@@ -1,11 +1,11 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "dev.lipejose";
+option java_package = "dev.lipejose.paymentprocessor";
 option java_outer_classname = "Payment";
 option objc_class_prefix = "HLW";
 
-package dev.lipejose;
+package dev.lipejose.paymentprocessor;
 
 service PaymentService {
   rpc process (PaymentRequest) returns (PaymentResponse) {}
@@ -13,35 +13,40 @@ service PaymentService {
 }
 
 message PaymentRequest {
-    Card card = 1;
-    Order order = 2;
-    string provider = 3;
+  Card card = 1;
+  Order order = 2;
+  string provider = 3;
 }
 
-    message Card {
-      string number = 1;
-      string ccv = 2;
-      string exp = 3;
-      string name = 4;
-      string brand = 5;
-    }
+message Card {
+  string number = 1;
+  string ccv = 2;
+  string exp = 3;
+  string name = 4;
+  string brand = 5;
+}
 
-    message Order {
-      string orderId = 1;
-      int32 amount = 2;
-      Customer customer = 3;
-    }
+message Order {
+  string orderId = 1;
+  int32 amount = 2;
+  Customer customer = 3;
+}
 
-    message Customer {
-      string first_name = 1;
-      string last_name = 2;
-    }
+message Customer {
+  string first_name = 1;
+  string last_name = 2;
+}
 
 message PaymentResponse {
   bool success = 1;
-  string transaction_id = 2;
-  string message = 3;
+  string order_id = 2;
+  string transaction_id = 3;
+  string message = 4;
+  int32 code = 5;
 }
+
+
+
 
 
 

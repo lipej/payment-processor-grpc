@@ -1,7 +1,8 @@
 package dev.lipejose.main.factories
 
 
-import dev.lipejose.infra.providers.CieloProvider
+import dev.lipejose.paymentprocessor.infra.providers.CieloProvider
+import dev.lipejose.paymentprocessor.main.factories.ProvidersFactory
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import jakarta.inject.Inject
 import spock.lang.Specification
