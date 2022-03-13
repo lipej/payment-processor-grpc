@@ -1,6 +1,6 @@
 package dev.lipejose.presentation.endpoints
 
-import dev.lipejose.PaymentProcessorServiceGrpcKt
+import dev.lipejose.PaymentServiceGrpcKt
 import dev.lipejose.PaymentRequest
 import dev.lipejose.PaymentResponse
 import dev.lipejose.domain.error.ProviderNotImplementedError
@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 
 @Singleton
-class PaymentEndpoint : PaymentProcessorServiceGrpcKt.PaymentProcessorServiceCoroutineImplBase() {
+class PaymentEndpoint : PaymentServiceGrpcKt.PaymentServiceCoroutineImplBase() {
 
     override suspend fun process(request: PaymentRequest): PaymentResponse {
         return when (val worker = ProvidersFactory().create(request.provider)) {
