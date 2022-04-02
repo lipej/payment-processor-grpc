@@ -6,7 +6,7 @@ plugins {
     id("groovy") 
     id("com.github.johnrengelman.shadow") version "7.1.1"
     id("io.micronaut.application") version "3.2.2"
-    id("com.google.protobuf") version "0.8.15"
+    id("com.google.protobuf") version "0.8.18"
 }
 
 version = "0.1"
@@ -28,6 +28,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     implementation("io.micronaut:micronaut-validation")
     implementation("io.grpc:grpc-kotlin-stub:1.2.1")
+    implementation("io.grpc:grpc-stub:1.45.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
     implementation("com.github.DeveloperCielo:API-3.0-Java:-SNAPSHOT")
 
@@ -70,14 +71,14 @@ sourceSets {
 
 protobuf {
     protoc {
-        artifact = "com.google.protobuf:protoc:3.14.0:osx-x86_64"
+        artifact = "com.google.protobuf:protoc:3.17.3"
     }
     plugins {
         id("grpc") {
-            artifact = "io.grpc:protoc-gen-grpc-java:1.39.0:osx-x86_64"
+            artifact = "io.grpc:protoc-gen-grpc-java:1.45.1"
         }
         id("grpckt") {
-            artifact = "io.grpc:protoc-gen-grpc-kotlin:0.2.0:jdk7@jar"
+            artifact = "io.grpc:protoc-gen-grpc-kotlin:1.2.1:jdk7@jar"
         }
     }
     generateProtoTasks {
